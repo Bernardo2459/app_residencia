@@ -76,6 +76,7 @@ const Login =  ({navigation}) => {
             onPress: () => console.log('novamente Pressed') },
         ]);
       console.log('Erro ao realizar a autentificação -' + JSON.stringify(error))
+      setLoading(false)
     }
   }
 
