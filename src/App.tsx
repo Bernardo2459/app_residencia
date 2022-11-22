@@ -3,6 +3,7 @@ import Login from './Pages/Login/index'
 import Home from './Pages/Home'
 import { View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
+import { DataProvider } from "./Context/DataContext";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 // function HomeScreen() {
@@ -29,19 +30,15 @@ const Stack = createNativeStackNavigator();
 
 export default () =>{
   return(
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
-      {/* <Tab.Screen 
-          name="Login" 
-          component={Login}
-          options={{
-            headerShown:false
-          }}
-          /> */}
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Login" component={Login} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <DataProvider>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Login">
+          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="Login" component={Login} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </DataProvider>
+    
     // <Login />
   );
 }
