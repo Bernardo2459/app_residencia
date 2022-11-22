@@ -8,7 +8,7 @@ import {
   TextInput,
   TouchableOpacity,
   ActivityIndicator,
-  Button
+  Alert
 } from 'react-native';
 
 import { styles } from './style';
@@ -39,6 +39,16 @@ const Login =  ({navigation}) => {
       }
 
     } catch (error){
+        Alert.alert('Usuário/Senha errado(s)', 'Tente novamente', [
+          {
+            text: 'Cadastrar',
+            onPress: () => console.log('Cadastrar Pressed'),
+            style: 'cancel',
+          },
+          { 
+            text: 'Tentar novamente', 
+            onPress: () => console.log('novamente Pressed') },
+        ]);
       console.log('Erro ao realizar a autentificação -' + JSON.stringify(error))
     }
   }
