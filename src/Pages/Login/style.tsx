@@ -9,7 +9,8 @@ export const styles =  StyleSheet.create({
     cabecalho: {
       flex: 1,
       justifyContent: 'flex-end',
-      alignItems: 'center'
+      alignItems: 'center',
+      marginBottom: 50
     },
     titulo: {
       fontSize: 30,
@@ -19,7 +20,8 @@ export const styles =  StyleSheet.create({
     conteudo: {
       flex: 1,
       justifyContent: 'center',
-      alignItems: 'center'
+      alignItems: 'center',
+      marginBottom: 40
     },
     input: {
         borderWidth: 2,

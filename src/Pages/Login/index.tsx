@@ -25,14 +25,11 @@ const Login =  ({navigation}) => {
   const {armazenaDadosUsuario} = useContext(DataContext)
 
   const Stack = createNativeStackNavigator();
-  
+
   const handleLogin = async () =>{
     console.log(`Email: ${email} - Senha: ${senha}`)
     var tokenJwt:any = null
-    
-    
     setLoading(true)
-    // setLoading(true)
     
     try{
       const retorno = await AxiosInstance.post('/auth/login', {
@@ -72,10 +69,6 @@ const Login =  ({navigation}) => {
     }
   }
 
-  // useEffect(() =>{
-  //   console.log("Component renderizado")
-  // },[])
-
   return (
     <View style={styles.container}>
 
@@ -108,25 +101,10 @@ const Login =  ({navigation}) => {
           />
           
         )}
-      
-          {/* <TouchableOpacity style={styles.botao} onPress={() => handleLogin()}>
-            <Text style={styles.textoBotao}>Login</Text>
-          </TouchableOpacity> */}
       </View>
       
     </View>
   );
 };
-
-// setTimeout( 
-//   <ActivityIndicator
-//   size="large"
-//   color={"blue"}
-//   animating={true}
-//   style={{alignSelf:'center', 
-//   justifyContent:'center', 
-//   position:'absolute'}}
-//   />
-// , 10000);
 
 export default Login;
