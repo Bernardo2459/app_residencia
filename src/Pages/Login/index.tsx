@@ -25,14 +25,6 @@ const Login =  ({navigation}) => {
   const {armazenaDadosUsuario} = useContext(DataContext)
 
   const Stack = createNativeStackNavigator();
-
-  // const Loading = () =>{
-  //   setTimeout(() => {
-  //     setLoading(true)
-  //   }, 1000);
-  // }
-  
-
   
   const handleLogin = async () =>{
     console.log(`Email: ${email} - Senha: ${senha}`)

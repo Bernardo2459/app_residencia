@@ -6,12 +6,10 @@ import {
   View,
   Text,
   FlatList,
-  TextInput,
   StyleSheet,
   StatusBar,
-  SafeAreaView,
   TouchableOpacity,
-  Button
+  
 } from 'react-native';
 
 //Import do DataContext
@@ -19,8 +17,6 @@ import { DataContext } from '../../Context/DataContext';
 
 import { DadosEditoraType } from '../../Models/DadosEditoraType';
 import { NavigationContainer } from '@react-navigation/native';
-
-// import { styles } from './style';
 
 const Item = ({ item, onPress, backgroundColor, textColor }) => (
   <TouchableOpacity onPress={onPress} style={[styles.item, backgroundColor]}>
