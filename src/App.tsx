@@ -28,7 +28,7 @@ const BottomNavigator = () =>{
       }}/>
       <TabBottomNavigation.Screen name ="HomeEditorasTabScreen" component={HomeEditoras}
         options={{
-          title:'Home',
+          title:'',
           tabBarIcon:() => (<Ionicons name='library' coloe='#000' size={24} />)
         }}/>
     </TabBottomNavigation.Navigator>
@@ -43,11 +43,11 @@ export default () =>{
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Login">
           <Stack.Screen name="BottomNavigatorScreen" component={BottomNavigator}
-          options={{title: " Home " , headerStyle:{backgroundColor: '#54b695'}
+          options={{title: "  " , headerStyle:{backgroundColor: '#54b695'}
         }} />
           <Stack.Screen name="Login" component={Login} options={{title: " " , headerStyle:{backgroundColor: '#54b695'}
            }} />
-          <Stack.Screen name="HomeEditora" component={HomeEditora} options={{title: "Home Editora" , headerStyle:{backgroundColor: '#54b695'}
+          <Stack.Screen name="HomeEditora" component={HomeEditora} options={{title: "" , headerStyle:{backgroundColor: '#54b695'}
            }} />
         </Stack.Navigator>
       </NavigationContainer>
