@@ -33,8 +33,12 @@ export default () =>{
     <DataProvider>
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Login">
-          <Stack.Screen name="Home" component={Home} />
-          <Stack.Screen name="Login" component={Login} />
+          <Stack.Screen name="Home" component={Home} 
+          options={{title: "Home Screen " , headerStyle:{backgroundColor: '#54b695'}
+            }} />
+          <Stack.Screen name="Login" component={Login} 
+          options={{title: " " , headerStyle:{backgroundColor: '#54b695'}
+            }} />
         </Stack.Navigator>
       </NavigationContainer>
     </DataProvider>
