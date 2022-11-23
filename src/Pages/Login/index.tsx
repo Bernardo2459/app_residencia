@@ -66,6 +66,7 @@ const Login =  ({navigation}) => {
 
     } catch (error){
       console.log('Erro ao realizar a autentificação -' + JSON.stringify(error))
+      setLoading(false)
     }
   }
 
