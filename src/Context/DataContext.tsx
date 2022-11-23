@@ -4,6 +4,7 @@ import jwt_decode from 'jwt-decode'
 
 //importando DadosUsuarioType
 import { DadosUsuarioType } from "../Models/DadosUsuarioType";
+import { DadosEditoraType } from "../Models/DadosEditoraType";
 
 //Criando o Contexto
 export const DataContext = createContext({});
@@ -11,7 +12,8 @@ export const DataContext = createContext({});
 //Criando o provedor de Contexto
 export const DataProvider = ({children}) =>{
     const [dadosUsuario, setDadosUsuario] = useState<DadosUsuarioType>()
-    
+    const[editoraSelecionada, setEditoraSelecionada] = useState<DadosEditoraType>()
+
     const armazenaDadosUsuario = (jwt:any) =>{
         var tokenDecodificado: any =jwt_decode(jwt)
 
@@ -32,7 +34,8 @@ export const DataProvider = ({children}) =>{
     return(
         <DataContext.Provider value={{
             dadosUsuario,
-            armazenaDadosUsuario
+            armazenaDadosUsuario,
+            // armazenaDadosEditora
         }}>
             {children}
         </DataContext.Provider>

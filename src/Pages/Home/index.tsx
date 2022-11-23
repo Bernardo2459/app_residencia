@@ -18,6 +18,7 @@ import {
 import { DataContext } from '../../Context/DataContext';
 
 import { DadosEditoraType } from '../../Models/DadosEditoraType';
+import { NavigationContainer } from '@react-navigation/native';
 
 // import { styles } from './style';
 
@@ -27,7 +28,7 @@ const Item = ({ item, onPress, backgroundColor, textColor }) => (
   </TouchableOpacity>
 );
 
-const Home = () =>{
+const Home = ({navigation}) =>{
   
   const {dadosUsuario} = useContext(DataContext)
   const[dadosEditora, setDadosEditora] = useState<DadosEditoraType[]>([]);
@@ -48,6 +49,10 @@ const Home = () =>{
     })
   }
 
+  const navigateToEditoraHome = (id:any)=>{
+    setSelectedId(id)
+    navigation.navigate('HomeEditora', {id:id})
+  }
   const renderItem = ({ item }) => {
     const backgroundColor = item.codigoEditora === selectedId ? "#6e3b6e" : "#f9c2ff";
     const color = item.codigoEditora === selectedId ? 'white' : 'black';
@@ -55,7 +60,7 @@ const Home = () =>{
     return (
       <Item 
         item={item}  
-        onPress={() => setSelectedId(item.codigoEditora)}
+        onPress={() => navigateToEditoraHome(item.codigoEditora)}
         backgroundColor={{ backgroundColor }} 
         textColor={{ color }}
       />
@@ -67,6 +72,7 @@ const Home = () =>{
       <FlatList 
       data={dadosEditora}
       renderItem={renderItem}
+      horizontal={true}
       keyExtractor={(item) => item.codigoEditora}
       />
     </View>
@@ -80,9 +86,10 @@ const styles = StyleSheet.create({
   },
   item: {
     backgroundColor: '#f9c2ff',
-    padding: 20,
-    marginVertical: 8,
-    marginHorizontal: 16,
+    padding: 10,
+    marginHorizontal: 8,
+    width:120,
+    justifyContent:'center',
   },
   title: {
     fontSize: 32,

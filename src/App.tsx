@@ -5,26 +5,35 @@ import { View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { DataProvider } from "./Context/DataContext";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Ionicons from 'react-native-vector-icons/Ionicons'
+import HomeEditoras from "./Pages/HomeEditoras";
+import HomeEditora from "./Pages/HomeEditora";
 
-// function HomeScreen() {
-//   return (
-//     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-//       <Text>Home Screen</Text>
-//     </View>
-//   );
-// }
-
-// const Stack = createNativeStackNavigator();
-
-// function App() {
-//   return (
-//     <NavigationContainer>
-//       <Stack.Navigator>
-//         <Stack.Screen name="Home" component={HomeScreen} />
-//       </Stack.Navigator>
-//     </NavigationContainer>
-//   );
-// }
+const TabBottomNavigation = createBottomTabNavigator();
+const BottomNavigator = () =>{
+  return(
+    <TabBottomNavigation.Navigator
+      screenOptions={{
+        headerShown:false,
+        tabBarStyle:{backgroundColor: '#ffcc00'},
+        tabBarActiveTintColor:'red',
+        tabBarInactiveTintColor:'blue'
+      }}
+    >
+      <TabBottomNavigation.Screen name ="HomeTabScreen" component={Home}
+      options={{
+        title:'Home',
+        tabBarIcon:() => (<Ionicons name='home' coloe='#000' size={24} />)
+      }}/>
+      <TabBottomNavigation.Screen name ="HomeEditorasTabScreen" component={HomeEditoras}
+        options={{
+          title:'Home',
+          tabBarIcon:() => (<Ionicons name='library' coloe='#000' size={24} />)
+        }}/>
+    </TabBottomNavigation.Navigator>
+  )
+}
 
 const Stack = createNativeStackNavigator();
 
@@ -33,8 +42,9 @@ export default () =>{
     <DataProvider>
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Login">
-          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="BottomNavigatorScreen" component={BottomNavigator} />
           <Stack.Screen name="Login" component={Login} />
+          <Stack.Screen name="HomeEditora" component={HomeEditora} />
         </Stack.Navigator>
       </NavigationContainer>
     </DataProvider>

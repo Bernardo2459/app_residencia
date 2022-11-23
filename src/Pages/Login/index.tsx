@@ -57,7 +57,7 @@ const Login =  ({navigation}) => {
 
         armazenaDadosUsuario(tokenJwt["jwt-token"])
 
-        navigation.navigate('Home')
+        navigation.navigate('BottomNavigatorScreen')
 
       }else{
         console.log('Erro ao relaizar a autentificação')
